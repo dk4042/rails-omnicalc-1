@@ -34,4 +34,15 @@ class ZebraController < ApplicationController
     @the_result = @numerator / @denominator
     render({:template => "calc_template/payment_results"})
   end
+
+  def random
+  render({:template => "calc_template/random"})
+  end
+
+  def random_results
+  @the_min = params.fetch("user_min").to_f
+  @the_max = params.fetch("user_max").to_f
+  @the_result = rand(@the_min..@the_max)
+  render({:template => "calc_template/random_results"})
+  end
 end 
